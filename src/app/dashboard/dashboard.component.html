@@ -1,0 +1,12 @@
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4" *ngFor="let user of users">
+        <div (click)="viewProfile(user)">
+          <img class="profile" src="assets/images/users/male.png">
+        </div>
+        <h3>{{user.name}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
