@@ -8,9 +8,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { NewComponent } from './new/new.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserPostComponent } from './user/userPost/userPost.component';
+import { UserCommentsComponent } from './user/userComments/userComments.component';
+import { Custom } from './custom.pipe';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,12 @@ import { RegisterComponent } from './register/register.component';
     LifecycleComponent,
     NewComponent,
     DashboardComponent,
-    ProfileComponent,
+    UserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserPostComponent,
+    UserCommentsComponent,
+    Custom
   ],
   imports: [
     BrowserModule,

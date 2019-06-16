@@ -27,4 +27,16 @@ export class ApiService {
     );
   }
 
+  getPosts() {
+    const _URL = this.baseUrl + 'posts';
+    return this.http.get(_URL);
+  }
+  getUserPosts(id) {
+    const _URL = this.baseUrl + 'posts/' + id;
+    return this.http.get(_URL);
+  }
+  getUserComments(id) {
+    const _URL = this.baseUrl + 'comments?postId=' + id;
+    return this.http.get(_URL);
+  }
 }

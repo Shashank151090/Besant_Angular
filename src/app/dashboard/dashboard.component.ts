@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
 
   viewProfile(user) {
     this.datatransfer.userData(user);
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/user']);
   }
 
 }
