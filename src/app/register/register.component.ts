@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-register',
@@ -8,41 +9,40 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private apiService: ApiService) { }
   registerForm: FormGroup;
   countries = [{ id: 1, name: 'India' }, { id: 2, name: 'USA' }, { id: 3, name: 'UK' }];
   submitted = false;
   ngOnInit() {
     this.registerForm = this.fb.group({
+      name: [''],
+      username: [''],
       email: [''],
-      password: [''],
-      gender: [''],
-      country: ['']
+      address: this.fb.group({
+        street: [''],
+        suite: [''],
+        city: ['']
+      }),
+      phone: [''],
+      website: [''],
+      company: this.fb.group({
+        name: ['']
+      })
     });
   }
   get f() { return this.registerForm.controls; }
 
   doLogin() {
     this.submitted = true;
-    if (this.registerForm.invalid) {
-      return;
-    }
-    console.log(this.registerForm.value);
-  }
-  todo(value: any) {
-    switch (value) {
-      case 'India':
-        // if modo 1 is selected do something.
-        console.log('India Clicked');
-        break;
-      case 'USA':
-        // if modo 2 is selected do something.
-        console.log('USA Clicked');
-        break;
-      case 'UK':
-        // if modo 3 is selected do something.
-        console.log('UK Clicked');
-        break;
-    }
+    this.apiService.addUser(this.registerForm.value)
+      .subscribe(
+        (result: any) => {
+          console.log(result);
+        },
+        error  => {
+        console.log("Error", error);
+        }
+
+      );
   }
 }

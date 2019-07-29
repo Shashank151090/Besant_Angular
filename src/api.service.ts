@@ -13,6 +13,11 @@ export class ApiService {
     const _URL = this.baseUrl + 'users';
     return this.http.get(_URL);
   }
+  addUser(data) {
+    console.log(data)
+    const _URL = this.baseUrl + 'users';
+    return this.http.post(_URL, data);
+  }
 
   getData() { // using pipe and map for data manupulation
     return this.http.get(this.baseUrl + 'users').pipe(

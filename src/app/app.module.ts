@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserPostComponent } from './user/userPost/userPost.component';
 import { UserCommentsComponent } from './user/userComments/userComments.component';
 import { Custom } from './custom.pipe';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Custom } from './custom.pipe';
     RegisterComponent,
     UserPostComponent,
     UserCommentsComponent,
-    Custom
+    Custom,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
